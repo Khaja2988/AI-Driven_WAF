@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+# Automated deployment for AI-Driven Web Security Suite
+# Triggers on push to main branch
+
 on:
   push:
     branches: [ main ]
