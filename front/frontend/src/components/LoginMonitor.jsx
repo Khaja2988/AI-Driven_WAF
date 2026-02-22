@@ -354,7 +354,7 @@ function LoginMonitor() {
               <div className="list-group list-group-flush">
                 <div className="list-group-item px-0">
                   <div className="d-flex justify-content-between align-items-center">
-                    <span>Failed Attempts > 3</span>
+                    <span>Failed Attempts &gt; 3</span>
                     <span className="badge bg-warning">+40 points</span>
                   </div>
                 </div>
