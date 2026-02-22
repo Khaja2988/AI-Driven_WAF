@@ -6,23 +6,27 @@
     <title>AI-Driven Web Security Suite</title>
     <script>
         // Single Page Apps for GitHub Pages
-        // See https://github.com/rafrex/spa-github-pages
-        // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-        // ----------------------------------------------------------------------
-        // This script takes the current url and converts the path and query
-        // string into just a query string, and then redirects the browser
-        // to the new url with only a query string and hash fragment,
-        // e.g. http://www.foo.bar/who/we/are -> http://www.foo.bar/?who/we/are
-        // and http://www.foo.bar/who/are/we?x=1 -> http://www.foo.bar/?who/are/we&x=1
-        // ----------------------------------------------------------------------
-        var segmentCount = 1;
+        // Modified for AI-Driven_WAF repository
+        var segmentCount = 2; // Account for /AI-Driven_WAF/ base path
         var l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(segmentCount).join('/') + (l.search ? '&' + l.search.slice(1) : '') +
-            l.hash
-        );
+        var pathSegments = l.pathname.split('/');
+        
+        // Check if we're already at the base path
+        if (pathSegments.length > 1 && pathSegments[1] === 'AI-Driven_WAF') {
+            // Redirect to index.html with the original path as hash
+            var remainingPath = pathSegments.slice(2).join('/');
+            var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+                        '/AI-Driven_WAF/#/' + remainingPath + (l.search ? l.search : '') + l.hash;
+            l.replace(newUrl);
+        } else {
+            // Fallback to original behavior
+            l.replace(
+                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+                l.pathname.slice(1).split('/').slice(segmentCount).join('/') + (l.search ? '&' + l.search.slice(1) : '') +
+                l.hash
+            );
+        }
     </script>
 </head>
 <body>

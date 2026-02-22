@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ThreatAnalyzer from "./components/ThreatAnalyzer";
 import LoginMonitor from "./components/LoginMonitor";
@@ -6,7 +6,7 @@ import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
-    <BrowserRouter basename="/AI-Driven_WAF/">
+    <HashRouter basename="/">
       <Navbar />
 
       <Routes>
@@ -15,7 +15,7 @@ function App() {
         <Route path="/analyzer" element={<ThreatAnalyzer />} />
         <Route path="/login-monitor" element={<LoginMonitor />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
